@@ -1,12 +1,16 @@
 import math
 from tabulate import tabulate
+import numpy
+import json
 
 
 def main():
-    for i in range (0,11):
-        if i % 2 == 0:
-            print (i)
-        elif i % 10 ==0:
-            print ("ahh")
+    items_json = open('Items.json')
+    items_str = items_json.read()
+    items = numpy.array(json.loads(items_str))[0]
+    print(items["Iron Ingot"])
+    myItem = items["Iron Ingot"]
+    for material in myItem["materials"]:
+        print(items[material])
 if __name__ == '__main__': 
     main()

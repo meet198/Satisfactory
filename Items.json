@@ -1,0 +1,16 @@
+[
+    {
+        "Iron Ore" : {
+            "perMin": 60,
+            "itemPer": [1, 0],
+            "building": "miner",
+            "materials": []
+        },
+        "Iron Ingot": {
+            "perMin": 30,
+            "itemPer": [1, 0],
+            "building": "smelter",
+            "materials": ["Iron Ore"]
+        }
+    }
+]
