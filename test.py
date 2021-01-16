@@ -1,7 +1,6 @@
 import math
 from tabulate import tabulate
 
-
 def main():
     for i in range (0,11):
         if i % 2 == 0:
