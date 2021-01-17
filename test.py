@@ -3,7 +3,6 @@ from tabulate import tabulate
 import numpy
 import json
 
-
 def main():
     items_json = open('Items.json')
     items_str = items_json.read()
