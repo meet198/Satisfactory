@@ -14,11 +14,6 @@ def main():
             self.itemPer2 = itemPer2
 
         def produce(self):
-            global parts
-            global build
-            global counter
-            if self.building != 'miner' and self.building != 'foundry' and self.numberOf < self.perMin :
-                self.perMin = self.numberOf
 
             self.totalAmount += self.numberOf
             counter = 0
@@ -44,7 +39,7 @@ def main():
     ironPlate = Item("Iron Plate", 20, 30/20, 0, 0, "constructor")
     ironRod = Item("Iron Rod", 15, 15/15, 0, 0, "constructor")
     screws = Item("Screws", 40, 10/40, 0, 0, "constructor")
-    reinforcedPlate = Item("Reinforced Plate", 15, 90/15, 250/15, 0, "assembler")
+    reinforcedPlate = Item("Reinforced Plate", 5, 30/5, 60/5, 0, "assembler")
     rotor = Item("Rotor", 4, 20/4, 100/4, 0, "assembler")
     modularFrame = Item("Modular Frame", 2, 3/2, 12/2, 0, "assembler")
     smartPlating = Item("Smart Plating", 2, 2/2, 2/2, 0, "assembler")
@@ -169,7 +164,8 @@ def main():
         automatedWiring.produce()
         Stator(numberOf*automatedWiring.itemPer)
         Cable(numberOf*automatedWiring.itemPer2)
-    ReinforcedPlate(20)
+    SmartPlating(4)
+    print (reinforcedPlate.totalAmount)
 
     
     miner = []
