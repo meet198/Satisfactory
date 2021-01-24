@@ -1,149 +1,150 @@
-[
-    {
-        "Iron Ore" : {
-            "perMin": 60,
-            "itemPer": [1, 0],
-            "building": "miner",
-            "materials": []
-        },
-        "Iron Ingot": {
-            "perMin": 30,
-            "itemPer": [1, 0],
-            "building": "smelter",
-            "materials": ["Iron Ore"]
-        },
-        "Iron Plate": {
-            "product": "Iron Plate",
-            "perMin": 20,
-            "itemPer": [1.5, 0],
-            "building": "constructor",
-            "materials": ["Iron Ingot"]
-        },
-        "Iron Rod": {
-            "product": "Iron Rod",
-            "perMin": 15,
-            "itemPer": [1, 0],
-            "building": "constructor",
-            "materials": ["Iron Ingot"]
-        },
-        "Screws": {
-            "product": "Screws",
-            "perMin": 40,
-            "itemPer": [0.25, 0],
-            "building": "constructor",
-            "materials": ["Iron Rod"]
-        },
-        "Reinforced Plate": {
-            "product": "Reinforced Plate",
-            "perMin": 15,
-            "itemPer": [6, 16.667],
-            "building": "assembler",
-            "materials": ["Iron Plate", "Screws"]
-        },
-        "Rotor": {
-            "product": "Rotor",
-            "perMin": 4,
-            "itemPer": [5, 25],
-            "building": "Assembler",
-            "materials": ["Iron Rod", "Screws"]
-        },
-        "Modular Frame": {
-            "product": "Modular Frame",
-            "perMin": 2,
-            "itemPer": [1.5, 6],
-            "building": "assembler",
-            "materials": ["Reinforced Plate", "Iron Rod"]
-        },
-        "Smart Plating": {
-            "product": "Smart Plating",
-            "perMin": 2,
-            "itemPer": [1, 1],
-            "building": "assembler",
-            "materials": ["Reinforced Plate", "Rotor"]
-        },
-        "Coal": {
-            "product": "Coal",
-            "perMin": 60,
-            "itemPer": [1, 0],
-            "building": "miner",
-            "materials": ["Coal"]
-        },
-        "Steel Ingot": {
-            "product": "Steel Ingot",
-            "perMin": 45,
-            "itemPer": [1, 1],
-            "building": "foundry",
-            "materials": ["Coal", "Iron Ore"]
-        },
-        "Steel Beam": {
-            "product": "Steel Beam",
-            "perMin": 15,
-            "itemPer": [5, 0],
-            "building": "constructor",
-            "materials": ["Steel Ingot"]
-        },
-        "Steel Pipe": {
-            "product": "Steel Pipe",
-            "perMin": 20,
-            "itemPer": [1.5, 0],
-            "building": "constructor",
-            "materials": ["Steel Ingot"]
-        },
-        "Versatile Framework": {
-            "product": "Versatile Framework",
-            "perMin": 5,
-            "itemPer": [0.5, 6],
-            "building": "assembler",
-            "materials": ["Modular Frame", "Steel Beam"]
-        },
-        "Copper Ore": {
-            "product": "Copper Ore",
-            "perMin": 60,
-            "itemPer": [1, 0],
-            "building": "miner",
-            "materials": ["Copper Ore"]
-        },
-        "Copper Ingot": {
-            "product": "Copper Ingot",
-            "perMin": 30,
-            "itemPer": [1, 0],
-            "building": "smelter",
-            "materials": ["Copper Ore"]
-        },
-        "Wire": {
-            "product": "Wire",
-            "perMin": 30,
-            "itemPer": [0.5, 0],
-            "building": "constructor",
-            "materials": ["Copper Ingot"]
-        },
-        "Cable": {
-            "product": "Cable",
-            "perMin": 30,
-            "itemPer": [2, 0],
-            "building": "constructor",
-            "materials": ["Wire"]
-        },
-        "Copper Sheet": {
-            "product": "Copper Sheet",
-            "perMin": 10,
-            "itemPer": [2, 0],
-            "building": "Constructor",
-            "materials": ["Copper Ingot"]
-        },
-        "Stator": {
-            "product": "Stator",
-            "perMin": 5,
-            "itemPer": [3, 8],
-            "building": "assembler",
-            "materials": ["Steel Pipe", "Wire"]
-        },
-        "Automated Wiring": {
-            "product": "Automated Wiring",
-            "perMin": 2.5,
-            "itemPer": [1, 20],
-            "building": "assembler",
-            "materials": ["Stator", "Cable"]
-        },
+{
+
+    "Iron Ore" : {
+        "product": "Iron Ore",
+        "perMin": 60,
+        "itemPer": [1, 0],
+        "building": "miner",
+        "materials": ["", ""]
+    },
+    "Iron Ingot": {
+        "product": "Iron Ingot",
+        "perMin": 30,
+        "itemPer": [1, 0],
+        "building": "smelter",
+        "materials": ["Iron Ore", ""]
+    },
+    "Iron Plate": {
+        "product": "Iron Plate",
+        "perMin": 20,
+        "itemPer": [1.5, 0],
+        "building": "constructor",
+        "materials": ["Iron Ingot", ""]
+    },
+    "Iron Rod": {
+        "product": "Iron Rod",
+        "perMin": 15,
+        "itemPer": [1, 0],
+        "building": "constructor",
+        "materials": ["Iron Ingot", ""]
+    },
+    "Screws": {
+        "product": "Screws",
+        "perMin": 40,
+        "itemPer": [0.25, 0],
+        "building": "constructor",
+        "materials": ["Iron Rod", ""]
+    },
+    "Reinforced Plate": {
+        "product": "Reinforced Plate",
+        "perMin": 15,
+        "itemPer": [6, 16.667],
+        "building": "assembler",
+        "materials": ["Iron Plate", "Screws"]
+    },
+    "Rotor": {
+        "product": "Rotor",
+        "perMin": 4,
+        "itemPer": [5, 25],
+        "building": "assembler",
+        "materials": ["Iron Rod", "Screws"]
+    },
+    "Modular Frame": {
+        "product": "Modular Frame",
+        "perMin": 2,
+        "itemPer": [1.5, 6],
+        "building": "assembler",
+        "materials": ["Reinforced Plate", "Iron Rod"]
+    },
+    "Smart Plating": {
+        "product": "Smart Plating",
+        "perMin": 2,
+        "itemPer": [1, 1],
+        "building": "assembler",
+        "materials": ["Reinforced Plate", "Rotor"]
+    },
+    "Coal": {
+        "product": "Coal",
+        "perMin": 60,
+        "itemPer": [1, 0],
+        "building": "miner",
+        "materials": ["", ""]
+    },
+    "Steel Ingot": {
+        "product": "Steel Ingot",
+        "perMin": 45,
+        "itemPer": [1, 1],
+        "building": "foundry",
+        "materials": ["Coal", "Iron Ore"]
+    },
+    "Steel Beam": {
+        "product": "Steel Beam",
+        "perMin": 15,
+        "itemPer": [5, 0],
+        "building": "constructor",
+        "materials": ["Steel Ingot", ""]
+    },
+    "Steel Pipe": {
+        "product": "Steel Pipe",
+        "perMin": 20,
+        "itemPer": [1.5, 0],
+        "building": "constructor",
+        "materials": ["Steel Ingot", ""]
+    },
+    "Versatile Framework": {
+        "product": "Versatile Framework",
+        "perMin": 5,
+        "itemPer": [0.5, 6],
+        "building": "assembler",
+        "materials": ["Modular Frame", "Steel Beam"]
+    },
+    "Copper Ore": {
+        "product": "Copper Ore",
+        "perMin": 60,
+        "itemPer": [1, 0],
+        "building": "miner",
+        "materials": ["", ""]
+    },
+    "Copper Ingot": {
+        "product": "Copper Ingot",
+        "perMin": 30,
+        "itemPer": [1, 0],
+        "building": "smelter",
+        "materials": ["Copper Ore", ""]
+    },
+    "Wire": {
+        "product": "Wire",
+        "perMin": 30,
+        "itemPer": [0.5, 0],
+        "building": "constructor",
+        "materials": ["Copper Ingot", ""]
+    },
+    "Cable": {
+        "product": "Cable",
+        "perMin": 30,
+        "itemPer": [2, 0],
+        "building": "constructor",
+        "materials": ["Wire", ""]
+    },
+    "Copper Sheet": {
+        "product": "Copper Sheet",
+        "perMin": 10,
+        "itemPer": [2, 0],
+        "building": "Constructor",
+        "materials": ["Copper Ingot", ""]
+    },
+    "Stator": {
+        "product": "Stator",
+        "perMin": 5,
+        "itemPer": [3, 8],
+        "building": "assembler",
+        "materials": ["Steel Pipe", "Wire"]
+    },
+    "Automated Wiring": {
+        "product": "Automated Wiring",
+        "perMin": 2.5,
+        "itemPer": [1, 20],
+        "building": "assembler",
+        "materials": ["Stator", "Cable"]
     }
-]
+}                                                                           

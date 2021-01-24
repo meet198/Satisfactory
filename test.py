@@ -1,15 +1,30 @@
-import math
-from tabulate import tabulate
-import numpy
-import json
+
 
 def main():
-    items_json = open('Items.json')
-    items_str = items_json.read()
-    items = numpy.array(json.loads(items_str))[0]
-    print(items["Iron Ingot"])
-    myItem = items["Iron Ingot"]
-    for material in myItem["materials"]:
-        print(items[material])
+    def what(z,a,b):
+        if a > 3:
+            print (z)
+            print (a)
+            print (f"{b}\n")
+            y = input("a")
+            a -= 1
+            z += 1
+            b += 1
+            what(z,a,b)
+        
+        out = input(f"{a}, {b}out")
+        
+        if b > 3:
+            print (z)
+            print (b)
+            y = input("b")
+            b -= 1
+            z += 1
+            what(z,a,b)
+
+        
+    x = {1,3,5,4,5,6,7,8,9}
+    for i in range (len(x)):
+        what(1, 5, 5)
 if __name__ == '__main__': 
     main()
