@@ -42,17 +42,23 @@ class Item:
             else:
                 counter += 1
 
-
 def main():
     with open("Items.json", "r") as itemsList:
         data = json.load(itemsList)
-
     product = input("What item do you want to produce? ")
-    # check that product is exists
     if product not in data:
         print ("No product matching that name")
         return
     amount = int(input("\nHow many of the product do you want? "))
+    calculate(product, amount)
+
+def calculate(product: str, amount: int):
+    with open("Items.json", "r") as itemsList:
+        data = json.load(itemsList)
+
+    if product not in data:
+        print ("No product matching that name")
+        return
 
     def recursiveProduce(material, amountMaterial):
         Item(
@@ -104,6 +110,8 @@ def main():
             vals.append(val)
 
         print(pd.DataFrame([v for v in vals], columns=['Product', 'Amount' ,'Leftover', 'Building', 'Needed']))
+
+        return partsDisplay
 
 if __name__ == '__main__': 
     main()
