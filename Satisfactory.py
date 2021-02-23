@@ -1,77 +1,75 @@
 import math
 import pandas as pd
 import json
-from json import JSONEncoder
-from types import SimpleNamespace
 
 parts = []
+class Item:
+    leftOver = 0
+    numberOf = 0
+    def __init__(self, product, perMin, itemPer, itemPer2 ,numberOf, building):
+        self.product = product
+        self.perMin = perMin
+        self.itemPer = itemPer 
+        self.numberOf = round(numberOf, 1)
+        self.building = building
+        self.itemPer2 = itemPer2
+
+    def produce(self):
+        counter = 0
+        build = 0
+        self.build = math.ceil(self.numberOf / self.perMin)
+        self.leftOver = round(self.build * self.perMin - self.numberOf)
+
+        while counter < len(parts)+1:
+
+            if not parts:
+                parts.append({'Product': self.product, 'Amount': self.numberOf, 'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
+                break  
+
+            elif parts[counter]['Product'] == self.product:
+                parts[counter][self.building] += self.build
+                parts[counter]['Leftover'] = self.leftOver
+                parts[counter]['Amount'] += self.numberOf
+                break
+
+            elif counter == len(parts) - 1:
+                parts.append({'Product': self.product, 'Amount': self.numberOf ,'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
+                break
+            
+            else:
+                counter += 1
 
 def main():
-    class Item:
-        leftOver = 0
-        numberOf = 0
-        def __init__(self, product, perMin, itemPer, itemPer2 ,numberOf, building):
-            self.product = product
-            self.perMin = perMin
-            self.itemPer = itemPer 
-            self.numberOf = round(numberOf, 1)
-            self.building = building
-            self.itemPer2 = itemPer2
-
-        def produce(self):
-            counter = 0
-            build = 0
-            self.build = math.ceil(self.numberOf / self.perMin)
-            self.leftOver = round(self.build * self.perMin - self.numberOf)
-
-            while counter < len(parts)+1:
-
-                if not parts:
-                    parts.append({'Product': self.product, 'Amount': self.numberOf, 'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
-                    break  
-
-                elif parts[counter]['Product'] == self.product:
-                    parts[counter][self.building] = self.build
-                    parts[counter]['Leftover'] = self.leftOver
-                    parts[counter]['Amount'] += self.numberOf
-                    break
-
-                elif counter == len(parts) - 1:
-                    parts.append({'Product': self.product, 'Amount': self.numberOf ,'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
-                    break
-                
-                else:
-                    counter += 1
-
     with open("Items.json", "r") as itemsList:
         data = json.load(itemsList)
 
     product = input("What item do you want to produce? ")
+
+    if product not in data:
+        print ("No product matching that name")
+        return
+
     amount = int(input("\nHow many of the product do you want? "))
 
-    def recursiveProduce(material1, material2, amountMaterial1, amountMaterial2):
-    
-        if material1 in data:  
-            makeMat1 = Item(data[material1]["product"], data[material1]["perMin"], data[material1]["itemPer"][0], data[material1]["itemPer"][1], amountMaterial1, data[material1]["building"])
-            makeMat1.produce()
-            recursiveProduce(data[material1]["materials"][0], data[material1]["materials"][1], data[material1]["itemPer"][0] * amountMaterial1, data[material1]["itemPer"][1] * amountMaterial1)
+    def recursiveProduce(material, amountMaterial):
+        Item(
+            data[material]["product"],
+            data[material]["perMin"],
+            data[material]["itemPer"][0],
+            data[material]["itemPer"][1],
+            amountMaterial,
+            data[material]["building"]
+        ).produce()
 
-        if material2 in data:
-            makeMat2 = Item(data[material2]["product"], data[material2]["perMin"], data[material2]["itemPer"][0], data[material2]["itemPer"][1], amountMaterial2, data[material2]["building"])
-            makeMat2.produce()
-            recursiveProduce(data[material2]["materials"][0], data[material2]["materials"][1], data[material2]["itemPer"][0] * amountMaterial2, data[material2]["itemPer"][1] * amountMaterial2)
-    
-    i = len(data)
-    for x in data:
+        subComponent1 = data[material]["materials"][0]
+        if subComponent1:
+            recursiveProduce(subComponent1, data[material]["itemPer"][0] * amountMaterial)
 
-        if product == data[x]["product"]:
-            makeItem = Item(data[x]["product"], data[x]["perMin"], data[x]["itemPer"][0], data[x]["itemPer"][1], amount, data[x]["building"])
-            makeItem.produce()
-            recursiveProduce(data[x]["materials"][0], data[x]["materials"][1], data[x]["itemPer"][0] * amount, data[x]["itemPer"][1] * amount)
-            break
+        subComponent2 = data[material]["materials"][1]
+        if subComponent2:
+            recursiveProduce(subComponent2, data[material]["itemPer"][1] * amountMaterial)
 
-        elif i == 1: print ("No product matching that name")
-        i -= 1
+    recursiveProduce(product, amount)
 
     if parts:
         miner = []

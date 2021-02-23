@@ -38,7 +38,7 @@
     "Reinforced Plate": {
         "product": "Reinforced Plate",
         "perMin": 15,
-        "itemPer": [6, 16.667],
+        "itemPer": [6, 16.67],
         "building": "assembler",
         "materials": ["Iron Plate", "Screws"]
     },
