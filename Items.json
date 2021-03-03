@@ -1,5 +1,4 @@
 {
-
     "Iron Ore" : {
         "product": "Iron Ore",
         "perMin": 60,
@@ -37,8 +36,8 @@
     },
     "Reinforced Plate": {
         "product": "Reinforced Plate",
-        "perMin": 15,
-        "itemPer": [6, 16.67],
+        "perMin": 5,
+        "itemPer": [6, 12],
         "building": "assembler",
         "materials": ["Iron Plate", "Screws"]
     },

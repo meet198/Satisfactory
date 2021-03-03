@@ -18,22 +18,20 @@ class Item:
         counter = 0
         build = 0
         self.build = math.ceil(self.numberOf / self.perMin)
-        self.leftOver = round(self.build * self.perMin - self.numberOf)
 
         while counter < len(parts)+1:
 
             if not parts:
-                parts.append({'Product': self.product, 'Amount': self.numberOf, 'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
+                parts.append({'Product': self.product, 'Amount': self.numberOf, 'Building': self.building, self.building: self.build})
                 break  
 
             elif parts[counter]['Product'] == self.product:
-                parts[counter][self.building] += self.build
-                parts[counter]['Leftover'] = self.leftOver
                 parts[counter]['Amount'] += self.numberOf
+                parts[counter][self.building] = math.ceil(parts[counter]['Amount'] / self.perMin)
                 break
 
             elif counter == len(parts) - 1:
-                parts.append({'Product': self.product, 'Amount': self.numberOf ,'Leftover': self.leftOver, 'Building': self.building, self.building: self.build})
+                parts.append({'Product': self.product, 'Amount': self.numberOf , 'Building': self.building, self.building: self.build})
                 break
             
             else:
@@ -41,10 +39,10 @@ class Item:
 
 def main():
     with open("Items.json", "r") as itemsList:
-        data = json.load(itemsList)
+        data = json.load(itemsList)        
 
-    product = input("What item do you want to produce? ")
-
+    product = input("What item do you want to produce? ").title()
+    
     if product not in data:
         print ("No product matching that name")
         return
@@ -101,7 +99,7 @@ def main():
                 val.append(v)
             vals.append(val)
 
-        print(pd.DataFrame([v for v in vals], columns=['Product', 'Amount' ,'Leftover', 'Building', 'Needed']))
+        print(pd.DataFrame([v for v in vals], columns=['Product', 'Amount' , 'Building', 'Needed']))
 
 if __name__ == '__main__': 
     main()
