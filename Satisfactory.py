@@ -66,7 +66,6 @@ def main():
         subComponent2 = data[material]["materials"][1]
         if subComponent2:
             recursiveProduce(subComponent2, data[material]["itemPer"][1] * amountMaterial)
-
     recursiveProduce(product, amount)
 
     if parts:
